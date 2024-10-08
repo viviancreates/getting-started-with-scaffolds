@@ -50,7 +50,7 @@ class MoviesController < ApplicationController
 
   def destroy
     the_id = params.fetch("id")
-    the_movie = Movie.where({ :id => the_id }).at(0)
+    the_movie = Movie.where({ :id => the_id }).first
 
     the_movie.destroy
 
