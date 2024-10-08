@@ -14,7 +14,6 @@ class MoviesController < ApplicationController
 
     #@the_movie = matching_movies.at(0)
     @the_movie = matching_movies[0]
-    @the_movie = matching_movies.first
 
     render({ :template => "movies/show" })
   end
@@ -35,7 +34,7 @@ class MoviesController < ApplicationController
 
   def update
     the_id = params.fetch("path_id")
-    the_movie = Movie.where({ :id => the_id }).at(0)
+    the_movie = Movie.where({ :id => the_id }).first
 
     the_movie.title = params.fetch("query_title")
     the_movie.description = params.fetch("query_description")
