@@ -37,7 +37,8 @@ class MoviesController < ApplicationController
       the_movie.save
       redirect_to("/movies", { :notice => "Movie created successfully." })
     else
-      redirect_to("/movies", { :alert => the_movie.errors.full_messages.to_sentence })
+      cookie[:title] = params.fetch("query_title")
+      redirect_to("/movies/new", { :alert => the_movie.errors.full_messages.to_sentence })
     end
   end
 
