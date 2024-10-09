@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @the_movie = Movie.new
     render template: "movies/new"
   end
   
@@ -42,7 +43,7 @@ class MoviesController < ApplicationController
 
       #redirect_to("/movies/new", { :alert => the_movie.errors.full_messages.to_sentence })
 
-      render template: "movies/with_errors"
+      render template: "movies/new"
     end
   end
 
